@@ -32,8 +32,13 @@ export default function HomeView({ articles, profile, profileRank, profilePostCo
             <strong>Future Updates</strong>
             <p>Preview planned ideas like watchlists, manga shelves, reactions, and collections.</p>
           </button>
-          <button className="map-card" type="button" onClick={() => setRoute(profile ? "dashboard" : "signup")}>
+          <button className="map-card" type="button" onClick={() => setRoute("anime-updates")}>
             <span>04</span>
+            <strong>Live Anime Updates</strong>
+            <p>Use Jikan to view airing anime, available trailers, and featured character lists.</p>
+          </button>
+          <button className="map-card" type="button" onClick={() => setRoute(profile ? "dashboard" : "signup")}>
+            <span>05</span>
             <strong>Profile And Writing</strong>
             <p>Create your identity, upload a photo, publish posts, and track your contributor rank.</p>
           </button>

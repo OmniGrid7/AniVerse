@@ -16,12 +16,13 @@ export default function AccessibilitySidebar({
     { key: "articles", label: "Feed", icon: <ListIcon /> },
     { key: "write", label: "Write", icon: <PlusIcon /> },
     { key: "recommendations", label: "Recommend", icon: <StarIcon /> },
+    { key: "anime-updates", label: "Anime Updates", icon: <BookIcon /> },
     { key: "updates", label: "Updates", icon: <SlidersIcon /> },
     { key: "dashboard", label: "Dashboard", icon: <UserIcon /> }
   ];
 
   return (
-    <aside className="settings-sidebar" aria-labelledby="settingsTitle">
+    <aside id="workspaceSidebar" className="settings-sidebar" aria-labelledby="settingsTitle">
       <div className="workspace-rail" aria-label="Workspace shortcuts">
         <a className="workspace-logo" href="#home" onClick={() => setRoute("home")} aria-label="Go to home">
           <BookIcon size={18} />
@@ -44,7 +45,7 @@ export default function AccessibilitySidebar({
       <div className="workspace-panels">
         <section className="workspace-card">
           <h2 id="settingsTitle">AniVerse Workspace</h2>
-          <p>Move between anime articles, recommendations, future updates, and your profile tools.</p>
+          <p>Move between anime articles, live anime updates, recommendations, and your profile tools.</p>
 
           <div className="workspace-actions">
             <button className="ghost-link compact-action" type="button" onClick={() => setRoute("write")}>

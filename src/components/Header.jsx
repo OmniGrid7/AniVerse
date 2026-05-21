@@ -14,6 +14,7 @@ export default function Header({ profile, setRoute, logout }) {
         <div className="nav-actions">
           <a className="ghost-link" href="#articles" onClick={() => setRoute("articles")}>Explore</a>
           <a className="ghost-link" href="#recommendations" onClick={() => setRoute("recommendations")}>Recommend</a>
+          <a className="ghost-link" href="#anime-updates" onClick={() => setRoute("anime-updates")}>Anime Updates</a>
           <a className="ghost-link" href="#updates" onClick={() => setRoute("updates")}>Updates</a>
           {profile && <a className="ghost-link" href="#dashboard" onClick={() => setRoute("dashboard")}>Dashboard</a>}
           <a className="ghost-link" href="#signup" onClick={() => setRoute("signup")}>{profile ? "Profile" : "Sign Up"}</a>

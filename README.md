@@ -13,6 +13,8 @@ AniVerse is a React-based anime web app for anime articles, anime and manga reco
 - Add anime or manga recommendations.
 - Upload poster images for recommendations.
 - View a Future Updates page with planned app ideas.
+- View live current-season anime updates from the Jikan REST API.
+- See available trailers and character lists for current anime.
 - Workspace sidebar with quick actions and user stats.
 - Light, dark, and high-contrast themes.
 - Font size, link style, and reduced-motion display controls.
@@ -106,6 +108,7 @@ Anime article website/
 - `Home`: hero section, stats, mission section, and featured articles.
 - `Explore`: full article feed with search and category filters.
 - `Recommend`: add anime or manga recommendations with optional poster images.
+- `Anime Updates`: current-season anime data, trailers, and characters powered by Jikan.
 - `Updates`: planned future features such as watchlists, manga shelves, reactions, and collections.
 - `Profile`: create or update profile details and profile photo.
 - `Write`: publish a new anime article.

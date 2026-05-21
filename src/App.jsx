@@ -14,6 +14,7 @@ import ArticlesView from "./components/ArticlesView.jsx";
 import FutureUpdatesView from "./components/FutureUpdatesView.jsx";
 import Header from "./components/Header.jsx";
 import HomeView from "./components/HomeView.jsx";
+import JikanUpdatesView from "./components/JikanUpdatesView.jsx";
 import LoadingScreen from "./components/LoadingScreen.jsx";
 import RecommendationsView from "./components/RecommendationsView.jsx";
 import ReaderModal from "./components/ReaderModal.jsx";
@@ -41,6 +42,7 @@ export default function App() {
   const [selectedArticle, setSelectedArticle] = useState(null);
   const [lockedArticle, setLockedArticle] = useState(null);
   const [isPageLoading, setIsPageLoading] = useState(false);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const transitionTimer = useRef(null);
 
   const articles = useMemo(() => promoteArticles([...userArticles, ...defaultArticles]), [userArticles]);
@@ -84,6 +86,7 @@ export default function App() {
 
   function navigate(nextRoute) {
     const nextHash = `#${nextRoute}`;
+    setIsSidebarOpen(false);
 
     if (window.location.hash === nextHash) {
       startRouteTransition(nextRoute);
@@ -153,6 +156,7 @@ export default function App() {
   function logout() {
     setProfile(null);
     setStoredJson(profileStorageKey, null);
+    setIsSidebarOpen(false);
     navigate("home");
   }
 
@@ -212,6 +216,10 @@ export default function App() {
       return <FutureUpdatesView setRoute={navigate} />;
     }
 
+    if (route === "anime-updates") {
+      return <JikanUpdatesView />;
+    }
+
     return (
       <HomeView
         articles={articles}
@@ -227,7 +235,16 @@ export default function App() {
   return (
     <>
       <Header profile={profile} setRoute={navigate} logout={logout} />
-      <div className="content-grid">
+      <button
+        className="sidebar-toggle"
+        type="button"
+        aria-controls="workspaceSidebar"
+        aria-expanded={isSidebarOpen}
+        onClick={() => setIsSidebarOpen((current) => !current)}
+      >
+        {isSidebarOpen ? "Hide Workspace" : "Show Workspace"}
+      </button>
+      <div className={`content-grid ${isSidebarOpen ? "sidebar-open" : ""}`}>
         <AccessibilitySidebar
           settings={settings}
           updateSettings={updateSettings}
